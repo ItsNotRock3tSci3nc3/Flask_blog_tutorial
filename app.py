@@ -27,6 +27,7 @@ def index():
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     #return "<h1>Welcome to My Blog</h1>"
+    return render_template('index.html', posts=posts)
 
 
 
