@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+    <h1>Edit Post</h1>
+    <form method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ post.title }}"><br><br>
+
+        <label for="content">Content:</label><br>
+        
+        <textarea id="content" name="content" rows="10" cols="30">{{ post.content }}</textarea><br><br>
+        <input type="submit" value="Update Post">
+    </form>
+    <form method="post" action="{{ url_for('delete', id=post.id) }}" style="margin-top:20px;">
+        <button type="submit" style="background:red; color:white; padding:8px; border:none; cursor:pointer;">
+            Delete Post
+        </button>
+    </form>
+
+{% endblock %}
